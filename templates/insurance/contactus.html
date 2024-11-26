@@ -36,7 +36,7 @@
       max-width: 600px;
       margin: 20px;
       text-align: center;
-      animation: fadeIn 0.8s ease forwards;
+      animation: fadeIn 0.8s ease forwards
     }
 
     /* Heading styles */
@@ -57,23 +57,15 @@
       line-height: 1.5;
     }
 
-    /* Form alignment */
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px; /* Space between form elements */
-    }
-
     /* Form input styling */
     .form-group input[type="text"],
     .form-group textarea {
-      width: 100%; /* Full width inside the container */
-      max-width: 500px; /* Optional: Add max width for better design */
+      width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
+      margin-top: 10px;
       font-size: 1em;
     }
 
@@ -87,7 +79,6 @@
       border-radius: 8px;
       transition: background-color 0.3s ease;
       cursor: pointer;
-      align-self: center; /* Center-align the button */
     }
 
     .btn-primary:hover {
@@ -99,27 +90,22 @@
       margin-top: 30px;
       font-size: 1em;
       color: #555;
-      text-align: center;
-      display: flex;
-      flex-direction: column; /* Stack items vertically */
-      gap: 10px; /* Add space between the items */
     }
 
     .contact-info p {
-      margin: 0; /* Remove unnecessary margins */
+      margin: 5px 0;
     }
 
-    /* Fade-in animation */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
   </style>
 </head>
 
@@ -136,13 +122,15 @@
     </p>
 
     <!-- Feedback form -->
-    <form method="POST" autocomplete="off">
+    {% comment %} <form method="POST" autocomplete="off">
       {% csrf_token %}
       <div class="form-group">
-        <h3>{{ form.as_p }}</h3>
+        <p>
+          <h3>{{ form.as_p }}</h3>
+        </p>
         <input type="submit" value="Send Message" class="btn btn-primary btn-lg">
       </div>
-    </form>
+    </form> {% endcomment %}
 
     <!-- Additional contact information -->
     <div class="contact-info">
