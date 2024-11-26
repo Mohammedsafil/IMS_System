@@ -6,40 +6,115 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style media="screen">
-    .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
+  <style>
+    /* Animated gradient background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #4e54c8, #8f94fb, #a0d7f0, #9be9a8);
+      background-size: 400% 400%;
+      animation: gradientBackground 15s ease infinite;
     }
 
+    /* Animation keyframes */
+    @keyframes gradientBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Centered jumbotron with shadow */
+    .jumbotron {
+        width: 70%; /* Adjust width as needed, e.g., 70%, 80%, etc. */
+        max-width: 1000px; /* Optional: limits max width */
+        margin: 20px auto; /* Centers the box horizontally */
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.8s ease forwards;
+      }
+    /* Heading style */
     .jumbotron h1 {
       text-align: center;
+      font-size: 2.5em;
+      color: #4e54c8;
+      font-weight: bold;
     }
 
+    /* Lead text styling */
+    .jumbotron p.lead {
+      font-size: 1.25em;
+      font-weight: 500;
+      color: #333;
+    }
+
+    /* Alert header */
     .alert {
       margin: 0px;
+      background-color: #8f94fb;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
     }
+
+    /* Image styling */
+    .about-image {
+      width: 600px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* Home button styling */
+    .btn-primary {
+      background-color: #4e54c8;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #3a41a8;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
   </style>
 
-  <title></title>
+  <title>About Us - SECE IMS System</title>
 </head>
 
 <body>
-
   {% include "insurance/navbar.html" %}
-  <br><br>
+  
   <center>
-    <h3 class='alert alert-success' style="margin-bottom:0px;">About Us !</h3>
+    <h3 class="alert">About SECE IMS System</h3>
   </center>
-  <div class="jumbotron text-center" style="margin-bottom: 0px;margin-top: 0px;">
-    
+  
+  <div class="jumbotron text-center">
+    <h1>Welcome to SECE IMS System</h1>
     <p class="lead">“Every month that you send a check to the life insurance company, you're making a bet with them. Don't worry, one day you'll win.”</p>
-    <hr class="my-4">
+    
+    <!-- Image between text and button -->
+    <img src="{% static 'image/seceit.png' %}" alt="About Us Image" class="about-image">
+
     <p>Explore our Website.</p>
     <p class="lead">
       <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
     </p>
-    <br><br><br><br>
   </div>
 
   {% include "insurance/footer.html" %}

@@ -4,32 +4,153 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Contact Us</title>
+  <style>
+    /* Animated gradient background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad390, #a1c4fd);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
+    /* Gradient animation keyframes */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
+    /* Centered and styled form container */
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: 20px;
+      text-align: center;
+      animation: fadeIn 0.8s ease forwards;
+    }
 
+    /* Heading styles */
+    h3.alert {
+      font-size: 1.8em;
+      color: #5a67d8;
+      font-weight: bold;
+      background-color: rgba(90, 103, 216, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+    }
 
+    /* Intro text */
+    .intro-text {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Form alignment */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; /* Space between form elements */
+    }
+
+    /* Form input styling */
+    .form-group input[type="text"],
+    .form-group textarea {
+      width: 100%; /* Full width inside the container */
+      max-width: 500px; /* Optional: Add max width for better design */
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+
+    /* Submit button styling */
+    .btn-primary {
+      background-color: #5a67d8;
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      align-self: center; /* Center-align the button */
+    }
+
+    .btn-primary:hover {
+      background-color: #3b4ac0;
+    }
+
+    /* Additional contact info */
+    .contact-info {
+      margin-top: 30px;
+      font-size: 1em;
+      color: #555;
+      text-align: center;
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      gap: 10px; /* Add space between the items */
+    }
+
+    .contact-info p {
+      margin: 0; /* Remove unnecessary margins */
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 
 <body>
-
   {% include "insurance/navbar.html" %}
-  <br><br>
 
-  <center>
-    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
+  <div class="form-container">
+    <h3 class="alert alert-success">Send Us Your Valuable Feedback!</h3>
 
+    <!-- Intro text -->
+    <p class="intro-text">
+      We value your thoughts and suggestions. Your feedback helps us to improve our services and serve you better.
+      Please fill out the form below to share your thoughts with us!
+    </p>
+
+    <!-- Feedback form -->
     <form method="POST" autocomplete="off">
-      <!-- Very Important csrf Token -->
       {% csrf_token %}
       <div class="form-group">
-        <p>
         <h3>{{ form.as_p }}</h3>
-        </p>
-        <br>
-        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
+        <input type="submit" value="Send Message" class="btn btn-primary btn-lg">
       </div>
     </form>
-  </center>
+
+    <!-- Additional contact information -->
+    <div class="contact-info">
+      <p><strong>Email:</strong> buildwithus@seceims.com</p>
+      <p><strong>Phone:</strong> +91 9789378657</p>
+      <p><strong>Address:</strong> 1234 SECE IMS Avenue, Kinathukedavu, Coimbatore, India</p>
+    </div>
+  </div>
 
   {% include "insurance/footer.html" %}
 </body>

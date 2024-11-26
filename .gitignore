@@ -4,3 +4,6 @@
 *.pyc
 __pycache__
 db.sqlite3
+README.md
+requirements.txt
+LICENSE

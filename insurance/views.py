@@ -12,9 +12,12 @@ from django.contrib.auth.models import User
 from customer import models as CMODEL
 from customer import forms as CFORM
 
+
+def logout_view(request):
+    return render(request,'insurance/index.html')
 def home_view(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')  
+    # if request.user.is_authenticated:
+        # return HttpResponseRedirect('afterlogin')  
     return render(request,'insurance/index.html')
 
 

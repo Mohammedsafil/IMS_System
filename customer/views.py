@@ -14,8 +14,8 @@ from django.contrib.auth.models import User
 
 
 def customerclick_view(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')
+    # if request.user.is_authenticated:
+    #     return HttpResponseRedirect('afterlogin')
     return render(request,'customer/customerclick.html')
 
 

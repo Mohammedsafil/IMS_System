@@ -1,142 +1,158 @@
 <!DOCTYPE html>
 {% load widget_tweaks %}
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style media="screen">
-     @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,300,600);
+<head>
+  <meta charset="utf-8">
+  <title>Login Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
-*{box-sizing:border-box;}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'open sans', helvetica, arial, sans;
-background:url(http://farm8.staticflickr.com/7064/6858179818_5d652f531c_h.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+    /* Body styling with animated gradient background */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #34d3eb, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      color: #333;
+      overflow: hidden;
+      position: relative;
+    }
 
-@grey:#2a2a2a;
-@blue:#1fb5bf;
-.log-form {
-  width: 40%;
-  min-width: 320px;
-  max-width: 475px;
-  background: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
--moz-transform: translate(-50%,-50%);
--o-transform: translate(-50%,-50%);
--ms-transform: translate(-50%,-50%);
-transform: translate(-50%,-50%);
-  
-  box-shadow: 0px 2px 5px rgba(0,0,0,.25);
-  
-  @media(max-width: 40em){
-    width: 95%;
-    position: relative;
-    margin: 2.5% auto 0 auto;
-    left: 0%;
-  -webkit-transform: translate(0%,0%);
--moz-transform: translate(0%,0%);
--o-transform: translate(0%,0%);
--ms-transform: translate(0%,0%);
-transform: translate(0%,0%);
-  }
-  
-  form {
-    display: block;
-    width: 100%;
-    padding: 2em;
-  }
-  
-  h2 {
-    width: 100%;
-    color: lighten(@grey, 20%);
-    font-family: 'open sans condensed';
-    font-size: 1.35em;
-    display: block;
-    background:@grey;
-    width: 100%;
-    text-transform: uppercase;
-    padding: .75em 1em .75em 1.5em;
-    box-shadow:inset 0px 1px 1px fadeout(white, 95%);
-    border: 1px solid darken(@grey, 5%);
-    //text-shadow: 0px 1px 1px darken(@grey, 5%);
-    margin: 0;
-    font-weight: 200;
-  }
-  
-  input {
-    display: block;
-    margin: auto auto;
-    width: 100%;
-    margin-bottom: 2em;
-    padding: .5em 0;
-    border: none;
-    border-bottom: 1px solid #eaeaea;
-    padding-bottom: 1.25em;
-    color: #757575;
-    &:focus {
+    /* Gradient animation keyframes */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .log-form {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: fadeIn 0.8s ease;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      font-weight: 600;
+      color: #2575fc;
+      margin-bottom: 1.2em;
+      text-align: center;
+      position: relative;
+      animation: slideIn 1s ease;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 1.5em;
+      border: none;
+      border-radius: 8px;
+      background: #f3f6f9;
+      font-size: 1em;
+      color: #333;
       outline: none;
+      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-  }
-  
-  .btn {
-    display: inline-block;
-    background: blue;
-    border: 1px solid darken(@blue, 5%);
-    padding: .5em 2em;
-    color: white;
-    margin-right: .5em;
-    box-shadow: inset 0px 1px 0px fadeout(white, 80%); 
-    &:hover {
-      background: lighten(@blue, 5%);
+
+    input:focus {
+      background-color: #eaf2fd;
+      box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
     }
-    &:active {
-      background: @blue; 
-      box-shadow: inset 0px 1px 1px fadeout(black, 90%); 
+
+    .btn {
+      display: inline-block;
+      background: #2575fc;
+      padding: 12px 20px;
+      font-size: 1em;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
-    &:focus {
-      outline: none;
+
+    .btn:hover {
+      background-color: #1b66db;
+      transform: translateY(-2px);
     }
-  }
-  
- 
-  
-}
 
+    .btn:active {
+      background-color: #164bab;
+      transform: translateY(0);
+    }
 
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-    </style>
-  </head>
-  <body>
-    {% include "insurance/navbar.html" %}
+    /* Responsive Design */
+    @media (max-width: 500px) {
+      .log-form {
+        width: 90%;
+        padding: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% include "insurance/navbar.html" %}
 
+  <div class="log-form">
+    <h2>Login to Your Account</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label class="form-label" for="username">Username</label>
+      {% render_field form.username class="form-control" placeholder="Enter your username" %}
+      
+      <label class="form-label" for="password">Password</label>
+      {% render_field form.password class="form-control" placeholder="Enter your password" %}
+      
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
 
-
-<div class="log-form">
-  <h2 class="text-center">LOGIN TO YOUR ACCOUNT</h2><br>
-  <form method="post">
-   {% csrf_token %}
-     {% render_field form.username class="form-control" placeholder="Username" %}
-     <br>
-    {% render_field form.password class="form-control" placeholder="Password" %}
-    <br>
-    <button type="submit" class="btn primary text-center">Login</button>
-    
-  </form>
-</div><!--end log form -->
-
-
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-{% include "insurance/footer.html" %}
-  </body>
+  {% include "insurance/footer.html" %}
+</body>
 </html>

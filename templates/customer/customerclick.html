@@ -5,37 +5,116 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Insurance Management System</title>
 
   <style media="screen">
+    /* Animated Gradient Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #34d3eb, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Keyframes for the gradient animation */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
     .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-
-    .jumbotron h1 {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 3em;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
       text-align: center;
+      margin: 20px;
+      animation: fadeIn 1s ease-out;
     }
 
-  </style>
+    /* Fade-in effect for the jumbotron */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
+    /* Styling for the main text and buttons */
+    .jumbotron h1 {
+      font-size: 2.5em;
+      color: #2575fc;
+      margin-bottom: 0.5em;
+    }
+
+    .jumbotron p.lead {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 1.5em;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #fff;
+      background-color: #2575fc;
+      border: none;
+      border-radius: 8px;
+      margin: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #1b66db;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      background-color: #164bab;
+      transform: translateY(0);
+    }
+
+    .hr-line {
+      width: 50%;
+      margin: auto;
+      border-top: 2px solid #2575fc;
+      margin-bottom: 1.5em;
+    }
+  </style>
 </head>
 
 <body>
-
   {% include "insurance/navbar.html" %}
-  <br><br>
-  <div class="jumbotron text-center" style="margin-bottom:0px;">
+
+  <div class="jumbotron">
     <h1 class="display-4">Hello, Customer</h1>
-    <p class="lead">Welcome to Insurance Management System</p>
-    <hr class="my-4">
-    <p>You can access various features after Login.</p>
-    <p class="lead">
+    <p class="lead">Welcome to the Insurance Management System</p>
+    <hr class="hr-line">
+    <p>Access a variety of features after logging in.</p>
+    <div>
       <a class="btn btn-primary btn-lg" href="customersignup" role="button">Create Your Account</a>
       <a class="btn btn-primary btn-lg" href="customerlogin" role="button">Login</a>
-    </p>
-    <br><br><br>
+    </div>
   </div>
- 
+
   {% include "insurance/footer.html" %}
 </body>
 
