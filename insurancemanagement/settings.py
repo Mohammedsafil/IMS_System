@@ -27,7 +27,7 @@ SECRET_KEY = 'ls@!_(edqp*xy76kvbsst$07at(v^li*2&ew!^$8o(@wa6@a+$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://ims-system-pzlr.onrender.com/']
+ALLOWED_HOSTS = ['https://ims-system-pzlr.onrender.com/,https://buildwithusims-system.onrender.com/']
 
 
 
